@@ -1,0 +1,1 @@
+SUBSYSTEM=="block", ACTION=="add", ATTRS{idVendor}=="fafa" SYMLINK+="external%n", RUN+="/home/rudloff/sources/CapsuleScripts/devices_driver/usbautobackup/usbautobackup.sh"block"
