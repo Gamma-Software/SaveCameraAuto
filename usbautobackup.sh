@@ -17,5 +17,5 @@ echo "$(date +"%H-%M-%S") : Mount backup device to $MOUNT_POINT" >> $LOGFILE
 #run a differential backup of files
 echo "$(date +"%H-%M-%S") : Backup to $BACKUP_SOURCE" >> $LOGFILE
 echo "$(date +"%H-%M-%S") : Unmount backup device" >> $LOGFILE
-/usr/bin/rsync -auz "$MOUNT_POINT" "$BACKUP_SOURCE" && /bin/umount "$BACKUP_DEVICE"
+/usr/bin/rsync -auz --progress "$MOUNT_POINT" "$BACKUP_SOURCE" && /bin/umount "$BACKUP_DEVICE" >> $LOGFILE
 exit
