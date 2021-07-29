@@ -1,5 +1,3 @@
-*Date creation: 04/04/2021*
-
 # SaveCameraAuto
 
 ## Description
@@ -16,12 +14,6 @@ For instance the usb device Vendor ID of 'Bus 001 Device 001: ID 1d6b:0002 Linux
 # Create custom udev
 Copy the 10.autobackup.rules in /etc/udev/rules.d/ folder and rename it if needed
 Update the content replacing 'ATTRS{idVendor}' with '1d6b' in our example and update the RUN parameter to your script location
-
-## Integration
-TODO
-
-## Language of programmation
-TODO
 
 ## How to contribute
 The main and develop branch is protected and only Valentin Rudloff will be able to merge and create a version
