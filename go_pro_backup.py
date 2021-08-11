@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import os
-import filecmp
 import shutil
 from pathlib import Path
 
@@ -14,10 +13,7 @@ def main():
 
     # if destination folder doesn't exists create it
     if not os.path.exists(folder_dst):
-        print("Create folder", folder_dst)
-        os.makedirs(folder_dst, 0o740)
-        os.chown(folder_dst, 82, 82) # Rudloff id and group Root
-        os.chmod(folder_dst, 0o774) # Give all read access but Rudloff write access 
+        print("Folder doesn not exists, create it", folder_dst)
     
     files_in_gopro = list(Path(folder_src).rglob("*.[mM][pP]4"))
     files_backuped = list(Path(folder_dst).rglob("*.[mM][pP]4"))
@@ -44,11 +40,6 @@ def main():
                     shutil.copyfile(src, dst)
     else:
         print("No Go Pro files to backup")
-
-    exit(0)
-    if not os.path.exists(dst) and result:
-        print("Backup go pro")
-        shutil.copyfile(src, dst)
 
 if __name__ == "__main__":
     # execute only if run as a script
