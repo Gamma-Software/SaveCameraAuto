@@ -1,9 +1,9 @@
 #!/usr/bin/bash
-BACKUP_SOURCE="/mnt/data/usb_backups"
+BACKUP_SOURCE="/mnt/data/shares/data/usb_backups"
 BACKUP_DEVICE="/dev/external3"
 MOUNT_POINT="/media/usb_drive"
 
-LOGFILE=/var/log/usbautobackup/$(date +"%Y-%m-%d_%H-%M-%S").log
+LOGFILE=/var/log/usbautobackup.log
 
 #check if mount point directory exists, if not create it
 if [ ! -d “MOUNT_POINT” ] ; then 
