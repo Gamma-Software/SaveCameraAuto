@@ -8,9 +8,16 @@ def main():
     folder_src = "/run/user/1000/gvfs/mtp:host=GoPro_HERO8_BLACK_C3331350619413/GoPro MTP Client Disk Volume/DCIM"
     folder_dst = "/mnt/data/shares/data/gopro"
 
-    # If Go Pro Not connected
+    # if Go Pro Not connected
     if not os.path.exists(folder_src):
         exit(0)
+
+    # if destination folder doesn't exists create it
+    if not os.path.exists(folder_dst):
+        print("Create folder", folder_dst)
+        os.makedirs(folder_dst, 0o740)
+        os.chown(folder_dst, 82, 82) # Rudloff id and group Root
+        os.chmod(folder_dst, 0o774) # Give all read access but Rudloff write access 
     
     files_in_gopro = list(Path(folder_src).rglob("*.[mM][pP]4"))
     files_backuped = list(Path(folder_dst).rglob("*.[mM][pP]4"))
