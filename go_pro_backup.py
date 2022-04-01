@@ -13,10 +13,10 @@ def main():
 
     # if destination folder doesn't exists create it
     if not os.path.exists(folder_dst):
-        print("Folder doesn not exists, create it", folder_dst)
+        print("Folder does not exists, create it", folder_dst)
     
-    files_in_gopro = list(Path(folder_src).rglob("*.[mM][pP]4"))
-    files_backuped = list(Path(folder_dst).rglob("*.[mM][pP]4"))
+    files_in_gopro = list(Path(folder_src).rglob("*.(([mM][pP]4)|(jpe?g))"))
+    files_backuped = list(Path(folder_dst).rglob("*.(([mM][pP]4)|(jpe?g))"))
 
     filename_in_gopro = [os.path.basename(filepath) for filepath in files_in_gopro]
     filename_backuped = [os.path.basename(filepath) for filepath in files_backuped]
